@@ -1,0 +1,43 @@
+.keyData-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  .keyData-card {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 258px;
+    height: 124px;
+    background-color: #FBFBFB;
+    border-radius: 10px;
+    .text-wrapper {
+      display: flex;
+        flex-direction: column;
+      float: right;
+      .keyData-value {
+        font-size: 18px;
+        font-weight: 600;
+        color: #000000;
+      }
+      .keyData-name {
+        color: #74798C;
+        font-weight: 600;
+      }
+    }
+  }
+  .keyData-card-calorieCount::before {
+    content: url('../../assets/icons/keyData/calories-icon.svg');
+  }
+  .keyData-card-proteinCount::before {
+    content: url('../../assets/icons/keyData/protein-icon.svg');
+  }
+  .keyData-card-carbohydrateCount::before {
+    content: url('../../assets/icons/keyData/carbs-icon.svg');
+  }
+  .keyData-card-lipidCount::before {
+    content: url('../../assets/icons/keyData/fat-icon.svg');
+  }
+}

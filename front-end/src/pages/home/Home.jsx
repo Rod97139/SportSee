@@ -5,6 +5,7 @@ import {getUser} from "../../services/UserService.js";
 import {formatUserInfos} from "../../models/UserFactory.js";
 import KeyData from "../../components/keyDatas/KeyData.jsx";
 import Score from "../../components/score/Score.jsx";
+import Daily from "../../components/daily/Daily.jsx";
 
 const Home = () => {
     const {userId} = useParams();
@@ -18,16 +19,21 @@ const Home = () => {
     }
 
     return (
-    <div className="home-container">
-        <Welcome userInfos={user.userInfos} />
-        <div className="data-wrapper">
-            <div className="charts">
-                <Score score={user.todayScore} />
+        <div className="home-container">
+            <Welcome userInfos={user.userInfos} />
+            <div className="data-wrapper">
+                <div className="charts">
+                    <Daily />
+                    <div className="charts-bottom">
+                        <Score score={user.todayScore} />
+                        <Score score={user.todayScore} />
+                        <Score score={user.todayScore} />
+                    </div>
+                </div>
+                <KeyData keyData={user.keyData} />
             </div>
-            <KeyData keyData={user.keyData} />
         </div>
-    </div>
-  )
+    )
 }
 
 export default Home

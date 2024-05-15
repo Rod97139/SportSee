@@ -1,11 +1,15 @@
+import "./KeyData.scss";
+
 // eslint-disable-next-line react/prop-types
 const KeyData = ({keyData}) => {
     return (
-        <div className="keyData-container">
+        <ul className="keyData-container">
             {Object.entries(keyData).map(([key, value], index) => {
                 const unity = [];
                 switch (key){
-                    case "calorieCount": unity.push("Calories");
+                    case "calorieCount": value = "" + (value/1000).toFixed(3);
+                                         value = value.replace(".", ",");
+                                         unity.push("Calories");
                                          unity.push("kCal");
                                          break;
                     case "proteinCount": unity.push("Protéines");
@@ -19,12 +23,15 @@ const KeyData = ({keyData}) => {
                                        break;
                 }
                 return (
-                    <div className={"keyData-" + key} key={index}>
-                        <h2>{unity[0]}: {value}{unity[1]}</h2>
-                    </div>
+                    <li className={"keyData-card keyData-card-" + key} key={index}>
+                        <div className={"text-wrapper"}>
+                            <span className="keyData-value">{value}{unity[1]}</span>
+                            <span className="keyData-name">{unity[0]}</span>
+                        </div>
+                    </li>
                 )
             })}
-        </div>
+        </ul>
     )
 }
 
