@@ -1,15 +1,12 @@
 // eslint-disable-next-line react/prop-types
 const KeyData = ({keyData}) => {
-
-    console.log(Object.entries(keyData), 'keyData')
-
     return (
-        <div>
+        <div className="keyData-container">
             {Object.entries(keyData).map(([key, value], index) => {
                 const unity = [];
                 switch (key){
                     case "calorieCount": unity.push("Calories");
-                                         unity.push("kcal");
+                                         unity.push("kCal");
                                          break;
                     case "proteinCount": unity.push("Protéines");
                                          unity.push("g");
@@ -21,13 +18,12 @@ const KeyData = ({keyData}) => {
                                        unity.push("g");
                                        break;
                 }
-                  return (
-                      <div key={index}>
-                         <h2>{unity[0]}: {value}{unity[1]}</h2>
-                      </div>
-                  )
-                }
-            )}
+                return (
+                    <div className={"keyData-" + key} key={index}>
+                        <h2>{unity[0]}: {value}{unity[1]}</h2>
+                    </div>
+                )
+            })}
         </div>
     )
 }

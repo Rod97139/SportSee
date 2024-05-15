@@ -1,0 +1,60 @@
+.aside {
+  z-index: 1;
+  height: 100%;
+  width: 117px;
+  float: left;
+  background-color: #020203;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  &-nav {
+    color: transparent;
+    &-link {
+      position: relative;
+      height: 316px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      &-yoga::after {
+        content: url("../../../assets/icons/yoga.svg");
+        width: 64px;
+        height: 64px;
+        cursor: not-allowed;
+      }
+      &-swim::after{
+        content: url("../../../assets/icons/swim.svg");
+        width: 64px;
+        height: 64px;
+        cursor: not-allowed;
+      }
+      &-bike::after {
+        content: url("../../../assets/icons/bike.svg");
+        width: 64px;
+        height: 64px;
+        cursor: not-allowed;
+      }
+      &-liftweight::after {
+        content: url("../../../assets/icons/liftweight.svg");
+        width: 64px;
+        height: 64px;
+        cursor: not-allowed;
+      }
+
+
+    }
+
+  }
+  &-copyright {
+    position: absolute;
+    bottom: 100px;
+    right: -5px;
+    width: 140px;
+    font-size: 12px;
+    transform: rotate(-90deg);
+  }
+
+}

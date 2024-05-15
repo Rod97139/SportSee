@@ -4,13 +4,17 @@ import {
     Outlet,
 } from 'react-router-dom';
 
-import Home from './pages/Home.jsx';
-import SelectUser from './pages/SelectUser';
-import NotFound from './pages/NotFound';
+import Home from './pages/home/Home.jsx';
+import SelectUser from './pages/selectUser/SelectUser.jsx';
+import NotFound from './pages/notFound/NotFound.jsx';
+import Header from "./components/layout/header/Header.jsx";
+import SideBar from "./components/layout/sideBar/SideBar.jsx";
 
 const Router = () => {
     const AppLayout = () => (
         <>
+            <Header />
+            <SideBar />
             <Outlet />
         </>
     );

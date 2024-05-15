@@ -1,0 +1,13 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 217px;
+  margin-right: 100px;
+  margin-block: 100px;
+  .data-wrapper {
+    display: flex;
+    //flex-direction: row;
+  }
+}

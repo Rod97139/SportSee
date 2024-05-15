@@ -1,7 +1,9 @@
 import { useFetch } from "../utils/hooks";
 
-export const getUser = (userId) => useFetch(`http://localhost:3000/user/${userId}`)
-export const getUserActivity = (userId) => useFetch(`http://localhost:3000/user/${userId}/activity`)
-export const getUserSessions = (userId) => useFetch(`http://localhost:3000/user/${userId}/average-sessions`)
-export const getUserPerformance = (userId) => useFetch(`http://localhost:3000/user/${userId}/performance`)
+const API_URL = 'http://localhost:3000/user/'
+
+export const getUser = (userId) => useFetch(API_URL + userId)
+export const getUserActivity = (userId) => useFetch(`${API_URL + userId}/activity`)
+export const getUserSessions = (userId) => useFetch(`${API_URL + userId}/average-sessions`)
+export const getUserPerformance = (userId) => useFetch(`${API_URL + userId}/performance`)
 
