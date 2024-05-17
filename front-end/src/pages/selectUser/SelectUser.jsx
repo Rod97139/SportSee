@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom"
+import "./SelectUser.scss"
 
 const SelectUser = () => {
   return (
-    <div>
+    <div className={"select-user"}>
       SelectUser
       <Link to="/user/12" >
         <button>Karl</button>

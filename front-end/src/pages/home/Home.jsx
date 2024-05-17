@@ -5,7 +5,10 @@ import {getUser} from "../../services/UserService.js";
 import {formatUserInfos} from "../../models/UserFactory.js";
 import KeyData from "../../components/keyDatas/KeyData.jsx";
 import Score from "../../components/score/Score.jsx";
-import Daily from "../../components/daily/Daily.jsx";
+import Activity from "../../components/activity/Activity.jsx";
+import Performance from "../../components/performance/Performance.jsx";
+import Sessions from "../../components/sessions/Sessions.jsx";
+
 
 const Home = () => {
     const {userId} = useParams();
@@ -18,16 +21,18 @@ const Home = () => {
         return <div>Loading...</div>
     }
 
+
+
     return (
         <div className="home-container">
             <Welcome userInfos={user.userInfos} />
             <div className="data-wrapper">
                 <div className="charts">
-                    <Daily />
+                    <Activity id={userId} />
                     <div className="charts-bottom">
-                        <Score score={user.todayScore} />
-                        <Score score={user.todayScore} />
-                        <Score score={user.todayScore} />
+                        <Sessions id={userId} />
+                        <Performance id={userId} />
+                        <Score percentage={user.todayScore*100} />
                     </div>
                 </div>
                 <KeyData keyData={user.keyData} />
