@@ -36,8 +36,11 @@ const Router = () => {
             element: <NotFound/>,
         },
         ]
-    },
-    ]);
+    }],
+        {
+        basename: '/sportsee',
+        }
+    );
 
     return (
         <RouterProvider router={router} />
