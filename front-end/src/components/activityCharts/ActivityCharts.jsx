@@ -71,7 +71,7 @@ const ActivityCharts = ({data }) => {
             .data(data.sessions)
             .enter().append('rect')
             .attr('class', 'bar-kilogram')
-            .attr('x', (d, i) => x(i + 1)) // Change this line
+            .attr('x', (d, i) => x(i + 1) + x.bandwidth() * 0.42)
             .attr('y', d => y(d.kilogram))
             .attr('width', 9) // Set the width to 9px
             .attr('height', d => height - y(d.kilogram))
@@ -80,15 +80,17 @@ const ActivityCharts = ({data }) => {
             .data(data.sessions)
             .enter().append('rect')
             .attr('class', 'bar-calories')
-            .attr('x', (d, i) => x(i + 1) + 18) // Adjust the x position to account for the new width
+            .attr('x', (d, i) => x(i + 1) + x.bandwidth() * 0.52)  // Adjust the x position to account for the new width
             .attr('y', d => yCalories(d.calories))
-            .attr('width', 9) // Set the width to 7px
+            .attr('width', 9) // Set the width to 9px
             .attr('height', d => height - yCalories(d.calories))
             .attr('fill', color('calories'))
 
     }, [data], [dimensions]);
 
-    return <svg ref={svgRef} style={{width: "100%"}}></svg>;
+    return <svg className={"activity-chart"} ref={svgRef}
+                // style={{width: "100%"}}
+            ></svg>;
 };
 
 export default ActivityCharts;
