@@ -75,7 +75,7 @@ const PerformanceCharts =  ({ data }) => {
 // Add the polygon
         g.append('polygon')
             .attr('points', pointsString)
-            .attr('fill', 'rgba(255, 0, 0, 0.6)'); // Set the fill color to #FF0000 with 60% opacity
+            .attr('fill', 'rgba(255, 1, 1, 0.7)'); // Set the fill color to #FF0000 with 60% opacity
 
     }, [data]);
 
