@@ -4,6 +4,18 @@
   justify-content: space-between;
   height: 100%;
   .keyData-card {
+    &-calorieCount::before {
+      content: url('../../assets/icons/keyData/calories-icon.svg');
+    }
+    &-proteinCount::before {
+      content: url('../../assets/icons/keyData/protein-icon.svg');
+    }
+    &-carbohydrateCount::before {
+      content: url('../../assets/icons/keyData/carbs-icon.svg');
+    }
+    &-lipidCount::before {
+      content: url('../../assets/icons/keyData/fat-icon.svg');
+    }
 
     display: flex;
     flex-direction: row;
@@ -15,7 +27,7 @@
     border-radius: 10px;
     .text-wrapper {
       display: flex;
-        flex-direction: column;
+      flex-direction: column;
       float: right;
       .keyData-value {
         font-size: 18px;
@@ -27,17 +39,5 @@
         font-weight: 600;
       }
     }
-  }
-  .keyData-card-calorieCount::before {
-    content: url('../../assets/icons/keyData/calories-icon.svg');
-  }
-  .keyData-card-proteinCount::before {
-    content: url('../../assets/icons/keyData/protein-icon.svg');
-  }
-  .keyData-card-carbohydrateCount::before {
-    content: url('../../assets/icons/keyData/carbs-icon.svg');
-  }
-  .keyData-card-lipidCount::before {
-    content: url('../../assets/icons/keyData/fat-icon.svg');
   }
 }
