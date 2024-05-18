@@ -23,32 +23,26 @@ const Score = ({ percentage }) => {
             .innerRadius(radius - thickness)
             .outerRadius(radius)
             .startAngle(0)
-            .endAngle((2 * Math.PI) * (percentage / 100));
+            .endAngle((2 * Math.PI) * (percentage / 100))
+            .cornerRadius(10);
 
         const g = svg.append('g')
-            .attr('transform', `translate(${width / 2}, ${height / 2})`);
+            .attr('transform', `translate(${width / 2}, ${height / 2}) rotate(-90)`);
 
         g.append('path')
             .attr('d', arc)
-            .attr('fill', 'steelblue');
+            .attr('fill', '#E60000')
+            .attr('stroke', '#E60000')
+            .attr('stroke-linecap', 'round');
 
         g.append('circle')
             .attr('cx', 0)
             .attr('cy', 0)
-            .attr('r', radius - thickness / 2)
-            .attr('fill', 'none')
-            .attr('stroke', 'lightgray')
-            .attr('stroke-width', thickness);
+            .attr('r', radius - thickness) // Le rayon du cercle doit être inférieur au rayon de l'arc
+            .attr('fill', '#FFFFFF'); // Définissez la couleur du cercle à #FFFFFF
 
-        g.append('circle')
-            .attr('cx', 0)
-            .attr('cy', 0)
-            .attr('r', radius - thickness / 2)
-            .attr('fill', 'none')
-            .attr('stroke', 'steelblue')
-            .attr('stroke-width', thickness)
-            .attr('stroke-dasharray', `${2 * Math.PI * (radius - thickness / 2)}`)
-            .attr('stroke-dashoffset', `${2 * Math.PI * (radius - thickness / 2) * (1 - percentage / 100)}`);
+
+
     }, [percentage]);
 
     return (
