@@ -6,10 +6,10 @@ const PerformanceCharts =  ({ data }) => {
 
     useEffect(() => {
         const svg = d3.select(ref.current);
-        const width = 200;
-        const height = 200;
+        const width = 300;
+        const height = 300;
         const maxSize = 200;
-        const numHexagons = 4;
+        const numHexagons = 5;
         const rotation = Math.PI / 6; // 30 degrees to point upwards
 
         // Clear previous content
@@ -23,7 +23,6 @@ const PerformanceCharts =  ({ data }) => {
             ]);
         };
 
-        const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
 
         const g = svg.append('g')
             .attr('transform', `translate(${width / 2}, ${height / 2})`);
@@ -32,10 +31,11 @@ const PerformanceCharts =  ({ data }) => {
         for (let i = 0; i < numHexagons; i++) {
             const size = (maxSize / numHexagons) * (i + 1) / 2;
 
+
             g.append('polygon')
                 .attr('points', hexagonPoints(size).map(point => point.join(',')).join(' '))
                 .attr('fill', 'none')
-                .attr('stroke', colorScale(i))
+                .attr('stroke', '#FFFFFF')
                 .attr('stroke-width', 2);
         }
 
@@ -45,17 +45,17 @@ const PerformanceCharts =  ({ data }) => {
         // Add labels to the points of the largest hexagon
         largestHexagonPoints.forEach((point, index) => {
             g.append('text')
-                .attr('x', point[0])
-                .attr('y', point[1])
+                .attr('x', point[0]*1.28)
+                .attr('y', point[1]*1.28)
                 .attr('dy', '0.35em')
                 .attr('text-anchor', 'middle')
-                .attr('fill', 'black')
+                .attr('fill', '#FFFFFF')
                 .text(data.kind[index + 1]);
         });
     }, [data]);
 
     return (
-        <svg ref={ref} width={200} height={200}></svg>
+        <svg ref={ref} width={300} height={300}></svg>
     );
 };
 
