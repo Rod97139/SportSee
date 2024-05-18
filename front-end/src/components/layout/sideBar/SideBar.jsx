@@ -12,7 +12,7 @@ const SideBar = () => {
                 </ul>
             </nav>
             <span className="aside-copyright">
-                Copiryght, SportSee 2024
+                Copyright, SportSee 2024
             </span>
         </aside>
     )

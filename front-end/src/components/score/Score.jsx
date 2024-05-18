@@ -42,6 +42,38 @@ const Score = ({ percentage }) => {
             .attr('fill', '#FFFFFF'); // Définissez la couleur du cercle à #FFFFFF
 
 
+        // Ajoutez le texte au centre du cercle
+        g.append('text')
+            .text(`${percentage} %`)
+            .attr('x', 0)
+            .attr('y', -10) // déplace légèrement vers le haut pour faire de la place pour les deux lignes de texte
+            .attr('text-anchor', 'middle')
+            .attr('dominant-baseline', 'central')
+            .attr('fill', '#000000') // couleur du texte
+            .style('font-size', '24px') // taille du texte
+            .style('font-weight', 'bold') // poids du texte
+            .attr('transform', 'rotate(90)'); // Ajoutez cette ligne pour faire pivoter le texte
+
+        g.append('text')
+            .text('de votre')
+            .attr('x', 0)
+            .attr('y', 20) // positionne au centre pour être entre la première ligne de texte et "objectif"
+            .attr('text-anchor', 'middle')
+            .attr('dominant-baseline', 'central')
+            .attr('fill', '#74798C') // couleur du texte
+            .style('font-size', '18px') // taille du texte
+            .attr('transform', 'rotate(90)'); // Ajoutez cette ligne pour faire pivoter le texte
+
+        g.append('text')
+            .text('objectif')
+            .attr('x', 0)
+            .attr('y', 40) // déplace légèrement vers le bas pour être sous "de votre"
+            .attr('text-anchor', 'middle')
+            .attr('dominant-baseline', 'central')
+            .attr('fill', '#74798C') // couleur du texte
+            .style('font-size', '18px') // taille du texte
+            .attr('transform', 'rotate(90)'); // Ajoutez cette ligne pour faire pivoter le texte
+
 
     }, [percentage]);
 
