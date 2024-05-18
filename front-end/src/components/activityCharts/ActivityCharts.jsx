@@ -1,5 +1,6 @@
 import * as d3 from "d3";
 import {useRef, useEffect, useState} from "react";
+import "./ActivityCharts.scss";
 
 const ActivityCharts = ({data }) => {
     const svgRef = useRef();
@@ -38,7 +39,7 @@ const ActivityCharts = ({data }) => {
             .attr('transform', `translate(${margin.left},${margin.top})`);
 
         const x = d3.scaleBand()
-            .domain(data.sessions.map(d => new Date(d.day)))
+            .domain([1, 2, 3, 4, 5, 6, 7])
             .range([0, width])
             .padding(0.1);
 
@@ -54,40 +55,37 @@ const ActivityCharts = ({data }) => {
 
         const color = d3.scaleOrdinal()
             .domain(['kilogram', 'calories'])
-            .range(['#1f77b4', '#ff7f0e']);
+            .range(['#282D30', '#E60000']);
 
         svg.append('g')
             .attr('class', 'x-axis')
             .attr('transform', `translate(0,${height})`)
-            .call(d3.axisBottom(x).tickFormat(d3.timeFormat("%Y-%m-%d")).tickSize(0))
-            .selectAll('text')
-            .attr('transform', 'rotate(-45)')
-            .style('text-anchor', 'end');
+            .call(d3.axisBottom(x).tickSize(0));
 
         svg.append('g')
             .attr('class', 'y-axis')
             .attr('transform', `translate(${width},0)`)
-            .call(d3.axisRight(y));
+            .call(d3.axisRight(y).tickSize(0));
 
         svg.selectAll('.bar-kilogram')
             .data(data.sessions)
             .enter().append('rect')
             .attr('class', 'bar-kilogram')
-            .attr('x', d => x(new Date(d.day)))
+            .attr('x', (d, i) => x(i + 1)) // Change this line
             .attr('y', d => y(d.kilogram))
-            .attr('width', x.bandwidth() / 2)
+            .attr('width', 9) // Set the width to 9px
             .attr('height', d => height - y(d.kilogram))
-            .attr('fill', color('kilogram'));
-
+            .attr('fill', color('kilogram'))
         svg.selectAll('.bar-calories')
             .data(data.sessions)
             .enter().append('rect')
             .attr('class', 'bar-calories')
-            .attr('x', d => x(new Date(d.day)) + x.bandwidth() / 2)
+            .attr('x', (d, i) => x(i + 1) + 18) // Adjust the x position to account for the new width
             .attr('y', d => yCalories(d.calories))
-            .attr('width', x.bandwidth() / 2)
+            .attr('width', 9) // Set the width to 7px
             .attr('height', d => height - yCalories(d.calories))
-            .attr('fill', color('calories'));
+            .attr('fill', color('calories'))
+
     }, [data], [dimensions]);
 
     return <svg ref={svgRef} style={{width: "100%"}}></svg>;
