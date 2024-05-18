@@ -1,7 +1,11 @@
 .charts-performance {
-  width: 280px;
+  width: 320px;
   height: 290px;
-  background-color: #FBFBFB;
+  background-color: #282D30;
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    flex-direction: column;
 
 }
