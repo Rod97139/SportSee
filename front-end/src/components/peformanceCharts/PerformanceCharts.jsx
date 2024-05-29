@@ -1,5 +1,6 @@
 import { useRef, useEffect } from 'react';
 import * as d3 from 'd3';
+import "./PerformancesCharts.scss";
 
 const PerformanceCharts =  ({ data }) => {
     const ref = useRef();

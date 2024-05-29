@@ -3,6 +3,7 @@ import "./Activity.scss";
 
 import ActivityCharts from "../activityCharts/ActivityCharts.jsx";
 import {getUserActivity} from "../../services/UserService.js";
+import ChartWithDimensions from "../activityCharts/ChatWithDimensions.jsx";
 
 // eslint-disable-next-line react/prop-types
 const Activity = ({id}) => {
@@ -18,7 +19,7 @@ const Activity = ({id}) => {
                 // onMouseMove={onMouseMove}
             >
 
-                {data && <ActivityCharts data={data.data}/>}
+                {data && <ChartWithDimensions />}
             </div>
         );
     }
