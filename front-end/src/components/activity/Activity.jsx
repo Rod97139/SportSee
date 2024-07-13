@@ -3,7 +3,6 @@ import "./Activity.scss";
 
 import ActivityCharts from "../activityCharts/ActivityCharts.jsx";
 import {getUserActivity} from "../../services/UserService.js";
-import ChartWithDimensions from "../activityCharts/ChatWithDimensions.jsx";
 
 // eslint-disable-next-line react/prop-types
 const Activity = ({id}) => {
@@ -20,7 +19,6 @@ const Activity = ({id}) => {
                 <h3 className="legend-weight">Poids (kg)</h3>
                 <h3 className="legend-calories">Calories brûlées (kCal)</h3>
                 {data && <ActivityCharts data={data.data} />}
-                {/* {data && <ChartWithDimensions />} */}
             </div>
         );
     }
