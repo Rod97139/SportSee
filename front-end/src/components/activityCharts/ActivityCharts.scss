@@ -1,3 +1,12 @@
 .activity-chart{
   transform: translate(-20px, 70px);
 }
+
+.background-rect {
+  // opacity: 0.2; /* Les rectangles sont masqués par défaut */
+  transition: opacity 0.3s; /* Transition douce pour l'opacité */
+}
+
+.info-group {
+  translate: translate(20px, 20px);
+}

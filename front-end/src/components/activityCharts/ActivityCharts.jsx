@@ -68,6 +68,28 @@ const ActivityCharts = ({data}) => {
             .call(d3.axisRight(y).tickSize(0).tickValues([60, 72, 84]))
             .call(g => g.select(".domain").remove()) // Suppress the y-axis line
 
+        svg.selectAll('.background-rect')
+            .data(data.sessions)
+            .enter().append('rect')
+            .attr('class', 'background-rect')
+            .attr('x', (d, i) => x(i + 1))
+            .attr('y', 0)
+            .attr('width', x.bandwidth())
+            .attr('height', 100)
+            .attr('fill', '#C4C4C480')
+            .attr('opacity', 0)
+
+        // svg.selectAll('info-rect')
+        //     .data(data.sessions)
+        //     .enter().append('rect')
+        //     .attr('class', 'info-rect')
+        //     .attr('x', (d, i) => x(i + 1))
+        //     .attr('y', 0)
+        //     .attr('width', x.bandwidth())
+        //     .attr('height', 100)
+        //     .attr('fill', 'red')
+        //     .attr('opacity', 0)
+
         svg.selectAll('.bar-kilogram')
             .data(data.sessions)
             .enter().append('path')
@@ -89,7 +111,7 @@ const ActivityCharts = ({data}) => {
             })
             .attr('fill', color('kilogram'));
 
-            svg.selectAll('.bar-calories')
+        svg.selectAll('.bar-calories')
             .data(data.sessions)
             .enter().append('path')
             .attr('class', 'bar-calories')
@@ -110,14 +132,73 @@ const ActivityCharts = ({data}) => {
             })
             .attr('fill', color('calories'))
 
-            // svg.selectAll('.bar-calories')
-            // .data(data.sessions)
-            // .enter().append('rect')
-            // .attr('class', 'bar-calories')
-            // .attr('x', (d, i) => x(i + 1) + x.bandwidth() * 0.62)  // Adjust the x position to account for the new width
-            // .attr('y', d => yCalories(d.calories))
-            // .attr('width', 9) // Set the width to 9px
-            // .attr('height', d => height - yCalories(d.calories))
+        svg.selectAll('.hover-rect')
+            .data(data.sessions)
+            .enter().append('rect')
+            .attr('class', 'hover-rect')
+            .attr('x', (d, i) => x(i + 1))
+            .attr('y', 0)
+            .attr('width', x.bandwidth())
+            .attr('height', 100)
+            .attr('fill', '#C4C4C480')
+            .attr('opacity', 0)
+            .attr('data-id', (d, i) => i)
+            .on('mouseover', function() {
+                const currentId = d3.select(this).attr('data-id');
+                // Sélectionner le rectangle de fond correspondant en utilisant l'index
+                const correspondingBackgroundRect = d3.selectAll('.background-rect').filter((d, i) => i === Number(currentId));
+                // Modifier l'opacité du rectangle de fond correspondant
+                correspondingBackgroundRect.attr('opacity', 0.5);
+
+                
+
+                            // Créer le carré rouge
+                const bbox = this.getBBox(); // Obtenir les coordonnées et dimensions de la bougie survolée
+                console.log(data.sessions[currentId]);
+                const group = d3.select(this.parentNode).append('g')
+                    .attr('class', 'info-group')
+                if (currentId == 6) {
+                    group.attr('transform', `translate(${-( bbox.width + 70)}, ${bbox.y})`); // Positionner le groupe à droite de la bougie // Positionner le groupe à gauche de la bougie
+                }
+                // Ajoutez le carré rouge au groupe
+                group.append('rect')
+                    .attr('x', bbox.x + bbox.width + 10) // Positionner à droite de la bougie
+                    .attr('y', bbox.y)
+                    .attr('width', 50) // Largeur du carré
+                    .attr('height', 75) // Hauteur du carré
+                    .attr('fill', 'red');
+
+                // Ajoutez le texte au même groupe
+                group.append('text')
+                    .attr('x', bbox.x + bbox.width + 10 + 25) // Centrer le texte dans le carré, ajustez selon besoin
+                    .attr('y', bbox.y + 50) // Centrer verticalement dans le carré, ajustez selon besoin
+                    .text(`${data.sessions[currentId].calories}kCal`) // Remplacez par votre texte
+                    .attr('fill', 'white') // Couleur du texte
+                    .attr('text-anchor', 'middle') // Centrer le texte horizontalement
+                    .attr('dominant-baseline', 'middle') // Centrer le texte verticalement
+                    .attr('font-size', '12px')
+
+                group.append('text')
+                    .attr('x', bbox.x + bbox.width + 10 + 25) // Centrer le texte dans le carré, ajustez selon besoin
+                    .attr('y', bbox.y + 20) // Centrer verticalement dans le carré, ajustez selon besoin
+                    .text(`${data.sessions[currentId].kilogram}kg`) // Remplacez par votre texte
+                    .attr('fill', 'white') // Couleur du texte
+                    .attr('text-anchor', 'middle') // Centrer le texte horizontalement
+                    .attr('dominant-baseline', 'middle') // Centrer le texte verticalement
+                    .attr('font-size', '12px')
+            })
+            .on('mouseout', function() {
+                const currentId = d3.select(this).attr('data-id');
+                // Sélectionner le rectangle de fond correspondant en utilisant l'index
+                const correspondingBackgroundRect = d3.selectAll('.background-rect').filter((d, i) => i === Number(currentId));
+                // Modifier l'opacité du rectangle de fond correspondant
+
+                correspondingBackgroundRect.attr('opacity', 0); // Masquer le rectangle lorsque le survol est terminé
+
+                // Supprimer le carré rouge et le texte
+                d3.select(this.parentNode).select('.info-group').remove();
+            });
+
 
         svg.select('.x-axis')
             .selectAll('text') // Sélectionne tous les textes de l'axe X
