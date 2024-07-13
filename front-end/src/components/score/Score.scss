@@ -1,10 +1,18 @@
 .score {
-  width: 320px;
-  height: 290px;
+  position: relative;
+  width: 180px;
+  height: 180px;
   background-color: #FBFBFB;
   border-radius: 10px;
+
   display: flex;
     justify-content: center;
     align-items: center;
-
+  
+  .title-score {
+    position: absolute;
+    top: 8px;
+    left: 18px;
+    font-size: 10px;
+  }
 }

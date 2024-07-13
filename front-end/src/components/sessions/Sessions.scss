@@ -1,7 +1,19 @@
 .charts-sessions {
-  width: 320px;
-  height: 290px;
+  position: relative;
+  width: 180px;
+  height: 180px;
   background-color: #FF0000;
   border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  .titile-sessions {
+    position: absolute;
+    top: 8px;
+    left: 18px;
+    font-size: 10px;
+    color: #FFFFFF;
+    opacity: 0.5;
+    width: 120px;
+  }
 
 }

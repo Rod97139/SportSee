@@ -1,6 +1,45 @@
 .charts-top {
+  position: relative;
   background-color: #FBFBFB;
   border-radius: 10px;
-  width: 100%;
-  height: 280px;
+  width: 600px;
+  height: 250px;
+  .title-activity {
+    position: absolute;
+    top: 8px;
+    left: 18px;
+    font-size: 10px;
+  }
+  .legend {
+    &-weight {
+      position: absolute;
+      top: 8px;
+      right: 160px;
+      font-size: 10px;
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 100%;
+        background-color: #282d30;
+        margin-right: 5px;
+      }
+    }
+    &-calories {
+      position: absolute;
+      top: 8px;
+      right: 18px;
+      font-size: 10px;
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 100%;
+        background-color: #e60000;
+        margin-right: 5px;
+      }
+    }
+  }
 }

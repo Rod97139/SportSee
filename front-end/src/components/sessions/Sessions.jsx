@@ -11,6 +11,9 @@ const Sessions = ({id}) => {
         data && console.log(data.data)
         return (
             <div className={"charts-sessions"}>
+                <h2 className="titile-sessions">
+                    Durée moyenne des sessions
+                </h2>
                 {data && <SessionsCharts data={data.data}/>}
             </div>
         );

@@ -13,9 +13,9 @@ const SessionsCharts = ({ data }) => {
 
         const { sessions } = data;
 
-        const margin = { top: 20, right: 30, bottom: 30, left: 40 };
-        const width = 290;
-        const height = 300 - margin.top - margin.bottom;
+        const margin = { top: 20, right: 20, bottom: 30, left: 40 };
+        const width = 130;
+        const height = 180 - margin.top - margin.bottom;
 
         // Clear previous content
         svg.selectAll('*').remove();
@@ -77,7 +77,7 @@ const SessionsCharts = ({ data }) => {
             .attr('d', line);
     }, [data]);
 
-    return <svg className={"average-sessions"} ref={svgRef} width={500} height={300} />;
+    return <svg className={"average-sessions"} ref={svgRef} width={180} height={180} />;
 };
 
 export default SessionsCharts;
