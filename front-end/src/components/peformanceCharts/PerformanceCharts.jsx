@@ -1,14 +1,19 @@
 import { useRef, useEffect } from 'react';
 import * as d3 from 'd3';
+import "./PerformancesCharts.scss";
 
 const PerformanceCharts =  ({ data }) => {
     const ref = useRef();
 
+    const capitalizeFirstLetter = (string) => {
+        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+    }
+
     useEffect(() => {
         const svg = d3.select(ref.current);
-        const width = 300;
-        const height = 300;
-        const maxSize = 200;
+        const width = 160;
+        const height = 160;
+        const maxSize = 110;
         const numHexagons = 5;
         const rotation = Math.PI / 6; // 30 degrees to point upwards
 
@@ -48,7 +53,8 @@ const PerformanceCharts =  ({ data }) => {
                 .attr('dy', '0.35em')
                 .attr('text-anchor', 'middle')
                 .attr('fill', '#FFFFFF')
-                .text(data.kind[index + 1]);
+                .attr('font-size', '10px')
+                .text(capitalizeFirstLetter(data.kind[index + 1]));
         });
 
         // Create a scale to map data values to hexagon size
@@ -81,7 +87,7 @@ const PerformanceCharts =  ({ data }) => {
 
 
     return (
-        <svg ref={ref} width={300} height={300}></svg>
+        <svg ref={ref} width={160} height={160}></svg>
     );
 };
 

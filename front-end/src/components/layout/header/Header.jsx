@@ -10,7 +10,7 @@ const Header = () => {
                 <ul className="header-nav-wrapper">
                     <li>
                         <Link to={"/"} className="header-nav-logo">
-                            <img src={logo}></img>
+                            <img className="header-nav-logo-svg" src={logo}></img>
                         </Link>
                     </li>
                     <li className="header-nav-link">

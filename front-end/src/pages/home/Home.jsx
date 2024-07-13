@@ -14,16 +14,19 @@ const Home = () => {
     const {userId} = useParams();
 
     const {data, isLoading} = getUser(userId);
-    let user = {};
-    if (data && !isLoading) {
+    console.log(isLoading, data, "isloading");
+    let user = null;
+    if (data) {
         user = formatUserInfos(data.data);
-    } else {
-        return <div>Loading...</div>
     }
 
 
 
+
+
+
     return (
+         (isLoading || !user) ? (<div>Loading...</div>) :
         <div className="home-container">
             <Welcome userInfos={user.userInfos} />
             <div className="data-wrapper">

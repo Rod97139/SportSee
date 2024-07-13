@@ -10,8 +10,8 @@ const Score = ({ percentage }) => {
 
     useEffect(() => {
         const svg = d3.select(ref.current);
-        const width = 200;
-        const height = 200;
+        const width = 140;
+        const height = 140;
         const thickness = 8;
         const radius = (Math.min(width, height) / 2) - (thickness / 2);
 
@@ -61,7 +61,8 @@ const Score = ({ percentage }) => {
             .attr('text-anchor', 'middle')
             .attr('dominant-baseline', 'central')
             .attr('fill', '#74798C') // couleur du texte
-            .style('font-size', '18px') // taille du texte
+            .style('font-size', '14px') // taille du texte
+            .style('font-weight', '600') // poids du texte
             .attr('transform', 'rotate(90)'); // Ajoutez cette ligne pour faire pivoter le texte
 
         g.append('text')
@@ -71,7 +72,8 @@ const Score = ({ percentage }) => {
             .attr('text-anchor', 'middle')
             .attr('dominant-baseline', 'central')
             .attr('fill', '#74798C') // couleur du texte
-            .style('font-size', '18px') // taille du texte
+            .style('font-size', '14px') // taille du texte
+            .style('font-weight', '600') // poids du texte
             .attr('transform', 'rotate(90)'); // Ajoutez cette ligne pour faire pivoter le texte
 
 
@@ -79,7 +81,8 @@ const Score = ({ percentage }) => {
 
     return (
         <div className="score">
-            <svg ref={ref} width={200} height={200}></svg>
+            <h2 className="title-score">Score</h2>
+            <svg ref={ref} width={140} height={140}></svg>
         </div>
     )
         ;

@@ -14,11 +14,11 @@ const Activity = ({id}) => {
     }else{
         data && console.log(data.data)
         return (
-            <div className={"charts-top"}
-                // onMouseMove={onMouseMove}
-            >
-
-                {data && <ActivityCharts data={data.data}/>}
+            <div className={"charts-top"}>
+                <h2 className="title-activity">Activité quotidienne</h2>
+                <h3 className="legend-weight">Poids (kg)</h3>
+                <h3 className="legend-calories">Calories brûlées (kCal)</h3>
+                {data && <ActivityCharts data={data.data} />}
             </div>
         );
     }
