@@ -26,7 +26,7 @@ const Home = () => {
 
 
     return (
-         (isLoading || !user) ? (<div>Loading...</div>) :
+         (isLoading || !user) ? (<div className="loader"></div>) :
         <div className="home-container">
             <Welcome userInfos={user.userInfos} />
             <div className="data-wrapper">

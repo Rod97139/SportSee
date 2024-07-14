@@ -4,8 +4,16 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-  button {
+  .consigne {
+    margin-bottom: 5px;
+  }
+  .btn-perso {
 
     color: #FFFFFF;
+    width: 150px;
+    margin: 3px;
+    &:hover {
+      background-color: #ff0101;
+    }
   }
 }

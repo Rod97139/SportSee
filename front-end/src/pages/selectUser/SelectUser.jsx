@@ -4,12 +4,12 @@ import "./SelectUser.scss"
 const SelectUser = () => {
   return (
     <div className={"select-user"}>
-      SelectUser
+      <span className="consigne">Sélectionnez un utilisateur:</span>
       <Link to="/user/12" >
-        <button>Karl</button>
+        <button className="btn-perso">Karl</button>
       </Link>
       <Link to="/user/18" >
-        <button>Cécilia</button> 
+        <button className="btn-perso">Cécilia</button> 
       </Link>
     </div>
   )

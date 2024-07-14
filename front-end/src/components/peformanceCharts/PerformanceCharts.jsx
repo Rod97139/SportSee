@@ -9,6 +9,20 @@ const PerformanceCharts =  ({ data }) => {
         return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
     }
 
+        // Objet de mappage pour les traductions anglais-français
+    const translations = {
+        "intensity": "intensité", 
+        "strength": "force", 
+        "speed": "vitesse",
+        "energy": "energie",
+    };
+    
+    // Fonction pour obtenir la traduction française
+    const getFrenchTranslation = (label) => {
+        // Vérifiez si la traduction existe, sinon retournez le label original
+        return translations[label] || label;
+    }
+
     useEffect(() => {
         const svg = d3.select(ref.current);
         const width = 160;
@@ -39,7 +53,7 @@ const PerformanceCharts =  ({ data }) => {
                 .attr('points', hexagonPoints(size).map(point => point.join(',')).join(' '))
                 .attr('fill', 'none')
                 .attr('stroke', '#FFFFFF')
-                .attr('stroke-width', 2);
+                .attr('stroke-width', 1);
         }
 
         // Get the points of the largest hexagon
@@ -54,7 +68,7 @@ const PerformanceCharts =  ({ data }) => {
                 .attr('text-anchor', 'middle')
                 .attr('fill', '#FFFFFF')
                 .attr('font-size', '10px')
-                .text(capitalizeFirstLetter(data.kind[index + 1]));
+                .text(capitalizeFirstLetter(getFrenchTranslation(data.kind[index + 1])));
         });
 
         // Create a scale to map data values to hexagon size

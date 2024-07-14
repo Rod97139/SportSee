@@ -6,7 +6,7 @@ import SessionsCharts from "../sessionsCharts/SessionsCharts.jsx";
 const Sessions = ({id}) => {
     const {data, isLoading} = getUserSessions(id);
     if (!data && isLoading) {
-        return <div>Loading...</div>
+        return <div className="loader"></div>
     }else{
         data && console.log(data.data)
         return (
