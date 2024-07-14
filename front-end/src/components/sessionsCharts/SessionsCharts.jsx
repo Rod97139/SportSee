@@ -151,9 +151,9 @@ const SessionsCharts = ({ data }) => {
                     console.log(currentId);
 
                 if (currentId == 0) {
-                    infoGroup.attr('transform', `translate(40, 0)`);
+                    infoGroup.attr('transform', `translate(12, 0)`);
                 } else if (currentId == 6) {
-                    infoGroup.attr('transform', `translate(-40, 0)`);
+                    infoGroup.attr('transform', `translate(-13, 0)`);
                 }
 
                 console.log(sessions)

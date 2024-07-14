@@ -10,7 +10,7 @@ const Activity = ({id}) => {
 
 
     if (!data && isLoading) {
-        return <div>Loading...</div>
+        return <div className="loader"></div>
     }else{
         data && console.log(data.data)
         return (

@@ -6,7 +6,7 @@ import "./Performance.scss";
 const Performance = ({id}) => {
     const {data, isLoading} = getUserPerformance(id);
     if (!data && isLoading) {
-        return <div>Loading...</div>
+        return <div className="loader"></div>
     }else{
         data && console.log(data.data)
         return (
