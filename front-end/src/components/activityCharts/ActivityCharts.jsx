@@ -79,17 +79,6 @@ const ActivityCharts = ({data}) => {
             .attr('fill', '#C4C4C480')
             .attr('opacity', 0)
 
-        // svg.selectAll('info-rect')
-        //     .data(data.sessions)
-        //     .enter().append('rect')
-        //     .attr('class', 'info-rect')
-        //     .attr('x', (d, i) => x(i + 1))
-        //     .attr('y', 0)
-        //     .attr('width', x.bandwidth())
-        //     .attr('height', 100)
-        //     .attr('fill', 'red')
-        //     .attr('opacity', 0)
-
         svg.selectAll('.bar-kilogram')
             .data(data.sessions)
             .enter().append('path')
