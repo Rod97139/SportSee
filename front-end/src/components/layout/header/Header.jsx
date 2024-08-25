@@ -13,20 +13,30 @@ const Header = () => {
                             <img className="header-nav-logo-svg" src={logo}></img>
                         </Link>
                     </li>
-                    <li className="header-nav-link">
-                        <Link to={"/"} >
-                            Accueil
-                        </Link>
-                    </li>
-                    <li className="header-nav-link">
-                        Profil
-                    </li>
-                    <li className="header-nav-link">
-                        Réglages
-                    </li>
-                    <li className="header-nav-link">
-                        Communauté
-                    </li>
+                    <li className="hamburger"
+                    onClick={
+                        () => {
+                            const links = document.querySelector('.header-nav-links');
+                            links.classList.toggle('responsive');
+                        }
+                    }
+                    ></li>
+                    <ul className="header-nav-links">
+                        <li className="header-nav-link">
+                            <Link to={"/"} >
+                                Accueil
+                            </Link>
+                        </li>
+                        <li className="header-nav-link">
+                            Profil
+                        </li>
+                        <li className="header-nav-link">
+                            Réglages
+                        </li>
+                        <li className="header-nav-link">
+                            Communauté
+                        </li>
+                    </ul>
                 </ul>
             </nav>
         </header>

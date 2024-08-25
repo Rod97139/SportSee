@@ -21,6 +21,11 @@
         align-items: center;
         height: 100%;
         width: 90%;
+        .header-nav-links {
+          display: flex;
+          justify-content: space-between;
+          min-width: 400px;
+        }
         .header-nav-link {
           font-weight: normal;
           font-size: 19px;
@@ -28,10 +33,37 @@
         }
       }
     }
-  //&-title {
-  //  margin: 0;
-  //}
-  //&-link {
-  //  margin: auto 30px auto 30px;
-  //}
+}
+
+@media screen and (max-width: 874px) {
+  .header {
+    height: 70px;
+    .header-nav-links {
+      display: none;
+    }
+    .hamburger::after {
+      content: url('../../../assets/icons/134216_menu_lines_hamburger_icon.svg');
+      cursor: pointer;
+    }
+    .hamburger:hover {
+      background-color: #ff0101;
+      border-radius: 5px;
+    }
+    .header-nav-links.responsive {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 70px;
+      right: 0;
+      background-color: #020203;
+      width: 100%;
+      .header-nav-link {
+        font-size: 20px;
+        padding: 10px;
+        text-align: center;
+        border-bottom: 1px solid #FFFFFF;
+      }
+
+    }
+  }
 }

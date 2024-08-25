@@ -1,6 +1,6 @@
 .aside {
   z-index: 1;
-  height: 100vh;
+  height: 100%;
   // width: 10vw;
   width: 82px;
   float: left;
@@ -12,6 +12,10 @@
   position: absolute;
   top: 0;
   // bottom: 0;
+  @media screen and (max-width: 874px) {
+    height: 1506px;
+    
+  }
   &-nav {
     color: transparent;
     &-link {
